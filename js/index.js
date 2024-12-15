@@ -4,7 +4,7 @@ let tempcalender = document.getElementById("tempcalender");
 
 searchBar.addEventListener("keyup", () => {
     if (searchBar.value != "" || searchBar.value.length > 2) {
-        getTem3days(searchBar.value)
+        getTem3days(searchBar.value, apiKey)
     }
 })
 navigator.geolocation.getCurrentPosition(async (position) => {
