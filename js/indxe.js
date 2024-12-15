@@ -48,7 +48,10 @@ async function getTem3days(searchValue) {
     // console.log(Date.parse("2024-12-15").toString("MMMM yyyy"));
     // console.log(Date.parse("05/05/2010").toString("MMMM yyyy"));
 
-
+    let [dayName, month, numOfDay] = getDaynameAndDate(data.location.localtime)
+    console.log(dayName);
+    console.log(numOfDay);
+    console.log(month);
     // } catch (err) {
     //     console.log("q is empty")
     //     console.log(err)
@@ -61,18 +64,10 @@ console.log("ss ss".split(" ", 1));
 
 getTem3days("london")
 
-let x = "2024-12-15"
-function getDaynameAndDate(x) {
+function getDaynameAndDate(date) {
     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    const date = new Date(x);
-    return [weekday[date.getDay()], month[date.getMonth()], x.split("-", 3)[2]];
+    const d = new Date(date);
+    return [weekday[d.getDay()], month[d.getMonth()], date.split("-", 3)[2].split(" ", 1)[0]];
 }
-let [day, numOfDay, month] = getDaynameAndDate(x)
-console.log(day);
-console.log(numOfDay);
-console.log(month);
-
-
-// console.log(document.getElementById("searchBar").value);
