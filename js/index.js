@@ -19,7 +19,7 @@ getTem3days(localStorage.getItem("UserAddres"));
 
 async function getTem3days(searchValue, apiKey) {
     try {
-        let api = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchValue}&days=3`);
+        let api = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchValue}&days=3`);
         let data = await api.json();
         //getDaynameAndDate
         let [dayNameToday, monthName, numOfDayToday] = getDaynameAndDate(data.location.localtime)
