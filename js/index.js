@@ -17,7 +17,7 @@ navigator.geolocation.getCurrentPosition(async (position) => {
 console.log(localStorage.getItem("UserAddres"));
 getTem3days(localStorage.getItem("UserAddres"));
 
-async function getTem3days(searchValue) {
+async function getTem3days(searchValue, apiKey) {
     try {
         let api = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchValue}&days=3`);
         let data = await api.json();
