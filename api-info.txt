@@ -1,0 +1,29 @@
+crrunt -> condition -> text
+crrunt -> condition -> icon                    replace it with img src
+crrunt -> temp_c
+crrunt -> last_updated
+
+
+location -> name
+location -> localtime
+
+
+tomorrow
+
+forecast -> forecastday -> 1 -> date
+
+forecast -> forecastday -> 1 -> day -> maxtemp_c
+forecast -> forecastday -> 1 -> day -> mintemp_c
+
+forecast -> forecastday -> 1 -> day -> condition -> text
+forecast -> forecastday -> 1 -> day -> condition -> icon              replace it with img src
+
+after tomorrow
+
+forecast -> forecastday -> 2 -> date
+
+forecast -> forecastday -> 2 -> day -> maxtemp_c
+forecast -> forecastday -> 2 -> day -> mintemp_c
+
+forecast -> forecastday -> 2 -> day -> condition -> text
+forecast -> forecastday -> 2 -> day -> condition -> icon              replace it with img src
