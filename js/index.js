@@ -4,7 +4,7 @@ let tempcalender = document.getElementById("tempcalender");
 
 searchBar.addEventListener("keyup", () => {
     if (searchBar.value != "" || searchBar.value.length > 2) {
-        getTem3days(searchBar.value, apiKey)
+        getTem3days(searchBar.value)
     }
 })
 navigator.geolocation.getCurrentPosition(async (position) => {
@@ -17,7 +17,7 @@ navigator.geolocation.getCurrentPosition(async (position) => {
 console.log(localStorage.getItem("UserAddres"));
 getTem3days(localStorage.getItem("UserAddres"));
 
-async function getTem3days(searchValue, apiKey) {
+async function getTem3days(searchValue) {
     try {
         let api = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchValue}&days=3`);
         let data = await api.json();
