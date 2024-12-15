@@ -7,6 +7,15 @@ searchBar.addEventListener("keyup", () => {
         getTem3days(searchBar.value)
     }
 })
+navigator.geolocation.getCurrentPosition(async (position) => {
+    Your_API_Access_Token = 'pk.3a33c1aa8eaa54c3d139ffefb3675ced'
+    let response = await fetch(`https://us1.locationiq.com/v1/reverse?key=${Your_API_Access_Token}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json&`);
+    let data = await response.json()
+    console.log(data.address.city);
+    localStorage.setItem("UserAddres", JSON.stringify(data.address.city))
+})
+console.log(localStorage.getItem("UserAddres"));
+getTem3days(localStorage.getItem("UserAddres"));
 
 async function getTem3days(searchValue) {
     try {
@@ -29,9 +38,9 @@ async function getTem3days(searchValue) {
                         <img src="${data.current.condition.icon}" alt="${data.current.condition.text}">
                         <p class="states">${data.current.condition.text}</p>
                         <div class="cardFooter">
-                            <span class="px-2"><img src="../weather/icon-umberella@2x.png" alt="umberella"> 20%</span>
-                            <span class="px-2"><img src="../weather/icon-wind@2x.png" alt="umberella"> 18km/h</span>
-                            <span class="px-2"><img src="../weather/icon-compass@2x.png" alt="umberella"> East</span>
+                            <span class="px-2"><img src="weather/icon-umberella@2x.png" alt="umberella"> 20%</span>
+                            <span class="px-2"><img src="weather/icon-wind@2x.png" alt="umberella"> 18km/h</span>
+                            <span class="px-2"><img src="weather/icon-compass@2x.png" alt="umberella"> East</span>
                         </div>
                     </div>
                 </div>
@@ -76,14 +85,6 @@ function getDaynameAndDate(date) {
 }
 
 
-navigator.geolocation.getCurrentPosition(async (position) => {
-    Your_API_Access_Token = 'pk.3a33c1aa8eaa54c3d139ffefb3675ced'
-    let response = await fetch(`https://us1.locationiq.com/v1/reverse?key=${Your_API_Access_Token}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json&`);
-    let data = await response.json()
-    console.log(data.address.city);
-    localStorage.setItem("UserAddres", JSON.stringify(data.address.city))
-})
-console.log(localStorage.getItem("UserAddres"));
-getTem3days(localStorage.getItem("UserAddres"));
+
 
 
