@@ -58,9 +58,6 @@ async function getTem3days(searchValue) {
     // }
 
 }
-console.log(['aaa'].toString());
-
-console.log("ss ss".split(" ", 1));
 
 getTem3days("london")
 
